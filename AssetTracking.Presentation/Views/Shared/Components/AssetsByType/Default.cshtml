@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AssetTracking.Presentation.Models.AssetModel>
+
+@{
+}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover bg-light custom-border">
+            <thead class="tab-head text-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TagNumber)
+                    </th>
+                    <th style="width:150px">
+                        @Html.DisplayNameFor(model => model.AssetTypeName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Manufacturer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th style="width:150px">
+                        @Html.DisplayNameFor(model => model.SerialNumber)
+                    </th>
+                    <th style="width:150px"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TagNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AssetTypeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Manufacturer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SerialNumber)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "Asset", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", "Asset", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

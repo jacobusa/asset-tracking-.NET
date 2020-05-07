@@ -1,0 +1,56 @@
+﻿@model AssetTracking.Presentation.Models.AssetModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Asset</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TagNumber" class="control-label">Tag Number: </label>
+                <input asp-for="TagNumber" class="form-control" />
+                <span asp-validation-for="TagNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssetTypeId" class="control-label">Asset Type: </label>
+                <select id="assetTypes" style="width:150px" asp-items="ViewBag.AssetTypes" asp-for="AssetTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manufacturer" class="control-label">Manufacturer: </label>
+                <input asp-for="Manufacturer" class="form-control" />
+                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label">Model: </label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description: </label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SerialNumber" class="control-label">Serial Number: </label>
+                <input asp-for="SerialNumber" class="form-control" />
+                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <img class="diskimg img-fluid" src="~/Images/dsk_drive.jpg" />
+    </div>
+</div>
+
+<div>
+    <a class="font-weight-bold text-md-center" asp-action="Index">Back to List</a>
+</div>
+

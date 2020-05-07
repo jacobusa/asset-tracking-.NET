@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Asset Tracking</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 header">
+            <div class="container">
+                <img src="~/Images/Asset-Tracking-01.png" width="40" height="40" class="d-inline-block align-top" />
+                <a class="navbar-brand text-light" style="margin-left:10px;" asp-area="" asp-controller="Asset" asp-action="Index">Asset Tracking</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light border-left" asp-area="" asp-controller="Asset" asp-action="Index">Assets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light border-left" asp-area="" asp-controller="Asset" asp-action="Create">New Asset</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light border-left" asp-area="" asp-controller="AssetType" asp-action="Index">Asset Types</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light border-left" asp-area="" asp-controller="AssetType" asp-action="Create"> New Asset Types</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted header">
+        <div class="container text-light text-center text-md-center" >
+            &copy; 2020 - Asset Tracking Final Assignment
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

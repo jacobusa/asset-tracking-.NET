@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AssetTracking.Presentation.Models.AssetModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<h2>Asset tracking provides secure and user-friendly asset management!</h2>
+<br />
+ <p>
+     <a class="font-weight-bold text-md-center" asp-action="Create">Create New Asset</a>
+ </p>
+<br />
+ <select id="typesSelectList" class="form-control" style="width:150px" asp-items="ViewBag.AssetTypes"></select>
+<br />
+<br />
+<div id="filteredAssets">
+    @await Component.InvokeAsync("AssetsByType")
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#typesSelectList").change(function () {
+                var assetTypeId = $("#typesSelectList").val();
+                $.ajax({
+                    method: "GET",
+                    url: "/Asset/GetAssetsByType",
+                    data: { id: assetTypeId }
+                }).done(function (result, statusText, xhdr) {
+                    $("#filteredAssets").html(result);
+                });
+            });
+        });
+    </script>
+}
