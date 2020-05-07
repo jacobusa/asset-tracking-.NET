@@ -1,13 +1,13 @@
 USE [master]
 GO
-/****** Object:  Database [AssetTracking]    Script Date: 5/6/2020 6:19:26 PM ******/
+/****** Object:  Database [AssetTracking]    Script Date: 5/7/2020 12:50:24 PM ******/
+DROP DATABASE [AssetTracking]
+GO
+/****** Object:  Database [AssetTracking]    Script Date: 5/7/2020 12:50:24 PM ******/
 CREATE DATABASE [AssetTracking]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'AssetTracking', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS01\MSSQL\DATA\AssetTracking.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'AssetTracking_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS01\MSSQL\DATA\AssetTracking_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
- WITH CATALOG_COLLATION = DATABASE_DEFAULT
+
 GO
 ALTER DATABASE [AssetTracking] SET COMPATIBILITY_LEVEL = 150
 GO
@@ -78,7 +78,7 @@ ALTER DATABASE [AssetTracking] SET QUERY_STORE = OFF
 GO
 USE [AssetTracking]
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 5/6/2020 6:19:26 PM ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 5/7/2020 12:50:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -92,7 +92,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Asset]    Script Date: 5/6/2020 6:19:26 PM ******/
+/****** Object:  Table [dbo].[Asset]    Script Date: 5/7/2020 12:50:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +111,7 @@ CREATE TABLE [dbo].[Asset](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AssetType]    Script Date: 5/6/2020 6:19:26 PM ******/
+/****** Object:  Table [dbo].[AssetType]    Script Date: 5/7/2020 12:50:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +125,43 @@ CREATE TABLE [dbo].[AssetType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Index [IX_Asset_AssetTypeId]    Script Date: 5/6/2020 6:19:26 PM ******/
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20200503171216_CreateAssetTracking', N'3.1.2')
+GO
+SET IDENTITY_INSERT [dbo].[Asset] ON 
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (1, N'JU45VD', 1, N'Dell', N'Dell XPS 13', N'An alright laptop', N'ERT456SDF')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (2, N'JI78RD', 1, N'HP', N'Surface Studio 2', N'A finer laptop', N'MNB678ERT')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (3, N'BN67FT', 1, N'Acer', N'Swift 3', N'The finest laptop', N'JRH765RGO')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (4, N'KJ98TY', 2, N'Acer', N'K2', N'A fine monitor', N'IUY234SDF')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (5, N'JI65ER', 2, N'LG', N'UltraWide® WQHD Nano IPS Monitor with Thunderbolt™ 3', N'A finer monitor', N'JSE678DVH')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (6, N'CD89WQ', 2, N'HP', N'E344c 34-inch Curved Monitor', N'The finest monitor', N'JEI876RHY')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (7, N'IJ87ER', 3, N'Avaya', N'Avaya 1408', N'A fully refurbished used phone', N'KJH678UYT')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (8, N'ML82WE', 3, N'Polycom', N'Polycom 250 Ip Phone', N'A modern, four-line, basic IP desk phone', N'NSH876ERT')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (9, N'IJ27RD', 3, N'Cisco', N'Cisco SPA 303 IP Phone', N'Three-way Calling (Conference)On-hook DialingCall', N'HUE876ERT')
+GO
+INSERT [dbo].[Asset] ([Id], [TagNumber], [AssetTypeId], [Manufacturer], [Model], [Description], [SerialNumber]) VALUES (11, N'BH87RT', 1, N'Dell', N'Surface Book 2', N'Great', N'BKG765STR')
+GO
+SET IDENTITY_INSERT [dbo].[Asset] OFF
+GO
+SET IDENTITY_INSERT [dbo].[AssetType] ON 
+GO
+INSERT [dbo].[AssetType] ([Id], [Name]) VALUES (1, N'Computer')
+GO
+INSERT [dbo].[AssetType] ([Id], [Name]) VALUES (2, N'Monitor')
+GO
+INSERT [dbo].[AssetType] ([Id], [Name]) VALUES (3, N'Phone')
+GO
+SET IDENTITY_INSERT [dbo].[AssetType] OFF
+GO
+/****** Object:  Index [IX_Asset_AssetTypeId]    Script Date: 5/7/2020 12:50:24 PM ******/
 CREATE NONCLUSTERED INDEX [IX_Asset_AssetTypeId] ON [dbo].[Asset]
 (
 	[AssetTypeId] ASC
