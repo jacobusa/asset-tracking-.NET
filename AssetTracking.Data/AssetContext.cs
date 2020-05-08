@@ -12,8 +12,8 @@ namespace AssetTracking.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Change the connection string here for your home computer/lab computer
-            optionsBuilder.UseSqlServer(@"Server=SAIT221781\SQLEXPRESS01;
-                                          Database=AssetTracking;
+            optionsBuilder.UseSqlServer(@"Server=\\EnterServerName//;
+                                          Database=\\DatabaseName//;
                                           Trusted_Connection=True;");
             optionsBuilder.EnableSensitiveDataLogging();
         }
